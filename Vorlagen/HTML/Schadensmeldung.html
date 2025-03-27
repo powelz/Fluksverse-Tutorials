@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <!-- Zeichencodierung und Responsives Design -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Titel der Seite (im Tab sichtbar) -->
+  <title>Schadensmeldung (Vorlage)</title>
+
+  <!-- CSS-Styles: Design der Seite -->
+  <style>
+    /* Farb- und Stilvariablen */
+    :root {
+      --main-bg: #f7faff; /* Hintergrundfarbe der Seite */
+      --card-bg: #ffffff; /* Hintergrundfarbe der Hauptbox */
+      --accent: #0099cc; /* Hauptakzentfarbe */
+      --accent-light: #e0f7ff; /* Hellere Akzentfarbe */
+      --text-color: #333; /* Standard-Textfarbe */
+      --border-radius: 24px; /* Abgerundete Ecken */
+    }
+
+    /* Grundlegende Formatierung für alle Elemente */
+    * {
+      box-sizing: border-box; /* Innen- und Außenabstände berechnen gemeinsam */
+    }
+
+    /* Grunddesign des Body-Bereichs */
+    body {
+      font-family: 'Segoe UI', sans-serif; /* Schriftart */
+      background: var(--main-bg); /* Hintergrundfarbe */
+      margin: 0;
+      padding: 20px;
+      color: var(--text-color); /* Textfarbe */
+    }
+
+    /* Hauptcontainer der Seite */
+    .container {
+      max-width: 700px; /* Maximale Breite */
+      margin: auto; /* Zentrierung */
+      background: var(--card-bg); /* Weißer Hintergrund */
+      border-radius: var(--border-radius); /* Runde Ecken */
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* Schatteneffekt */
+      padding: 30px; /* Innenabstand */
+    }
+
+    /* Überschrift (Kopfzeile) */
+    .header {
+      background: var(--accent); /* Blaue Hintergrundfarbe */
+      color: white; /* Textfarbe weiß */
+      padding: 20px; /* Abstand innen */
+      text-align: center; /* Zentrierter Text */
+      font-size: 24px; /* Größere Schrift */
+      border-radius: var(--border-radius); /* Abgerundete Ecken */
+      margin-bottom: 30px; /* Abstand nach unten */
+    }
+
+    /* Bereich für Tabelle */
+    .table-container {
+      background: var(--accent-light); /* Hellblauer Hintergrund */
+      border-radius: var(--border-radius); /* Runde Ecken */
+      padding: 20px; /* Innenabstand */
+      margin-bottom: 30px; /* Abstand nach unten */
+    }
+
+    /* Tabellenformatierung */
+    table {
+      width: 100%; /* Ganze Breite nutzen */
+      border-collapse: separate;
+      border-spacing: 0 12px; /* Abstand zwischen Zeilen */
+    }
+
+    /* Tabellenzellen */
+    th, td {
+      padding: 10px 16px; /* Innenabstand */
+      text-align: left; /* Linksbündig */
+      background: white; /* Weißer Hintergrund für jede Zelle */
+      border-radius: var(--border-radius); /* Runde Ecken */
+    }
+
+    /* Kopfzellen (linke Seite) */
+    th {
+      background-color: #f0f0f0; /* Grau hinterlegt */
+      width: 40%; /* Festgelegte Breite */
+      font-weight: 600; /* Halbfett */
+    }
+
+    /* Überschrift für Beschreibung */
+    .description-label {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    /* Textfeld für Beschreibung */
+    .description-area {
+      background: #fefefe; /* Fast weiß */
+      border: 2px solid var(--accent); /* Blaue Umrandung */
+      border-radius: var(--border-radius); /* Runde Ecken */
+      padding: 20px; /* Innenabstand */
+      font-size: 16px;
+      white-space: pre-wrap; /* Zeilenumbrüche beibehalten */
+      color: var(--text-color);
+      margin-bottom: 30px;
+    }
+
+    /* Container für Unterschrift & Absenderdaten */
+    .signature-container {
+      margin-top: 30px;
+    }
+
+    /* Visuelle Box für Absenderdaten */
+    .signature-block {
+      background: #f8f8f8;
+      padding: 20px;
+      border-radius: var(--border-radius);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    /* Optionales Firmenlogo */
+    .signature-logo {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    /* Bild im Unterschriftsbereich */
+    .signature-logo img {
+      max-width: 120px;
+      border-radius: 100px; /* Kreisform */
+    }
+
+    /* Fußzeile mit Hinweis */
+    .footer-note {
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      margin-top: 30px;
+    }
+
+    /* Design für kleine Bildschirme (Mobilgeräte) */
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+      .header {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hauptinhalt -->
+  <div class="container">
+    <!-- Titelzeile -->
+    <div class="header">📄 Schadensmeldung (Vorlage)</div>
+
+    <!-- Einleitungstext -->
+    <p>Sehr geehrte Damen und Herren,</p>
+    <p>Hiermit möchten wir folgenden Schaden melden und bitten um entsprechende Bearbeitung:</p>
+
+    <!-- Tabelle mit den Eckdaten der Meldung -->
+    <div class="table-container">
+      <table>
+        <tr><th>Datum der Meldung</th><td>{{datum}}</td></tr>
+        <tr><th>Mietername</th><td>{{mieter_vorname}} {{mieter_nachname}}</td></tr>
+        <tr><th>Adresse</th><td>{{mieter_adresse}}</td></tr>
+        <tr><th>Telefon</th><td>{{mieter_telefon}}</td></tr>
+        <tr><th>E-Mail</th><td>{{mieter_email}}</td></tr>
+        <tr><th>Objekt</th><td>{{objekt}}</td></tr>
+        <tr><th>Einheit</th><td>{{einheit}}</td></tr>
+        <tr><th>Auszugsdatum</th><td>{{auszugsdatum}}</td></tr>
+        <tr><th>Dringlichkeit</th><td>{{dringlichkeit}}</td></tr>
+      </table>
+    </div>
+
+    <!-- Überschrift für Beschreibung -->
+    <div class="description-label">🛠 Beschreibung des Schadens</div>
+    <!-- Textbox für den Schadensinhalt -->
+    <div class="description-area">
+      {{beschreibung}}
+    </div>
+
+    <!-- Abschlusssatz -->
+    <p>Für Rückfragen stehen wir Ihnen jederzeit gern zur Verfügung.</p>
+    <p><strong>Mit freundlichen Grüßen</strong></p>
+
+    <!-- Absenderdaten -->
+    <div class="signature-container">
+      <div class="signature-logo">
+        <img src="{{firmenlogo_url}}" alt="Firmenlogo">
+      </div>
+      <div class="signature-block">
+        <p><strong>{{mitarbeiter_vorname}} {{mitarbeiter_nachname}}</strong></p>
+        <p>{{mitarbeiter_position}}</p>
+        <p>{{firma_name}}</p>
+        <p>{{firma_strasse}}, {{firma_plz}} {{firma_ort}}</p>
+        <p>Tel.: {{mitarbeiter_telefon}}</p>
+        <p>Fax: {{mitarbeiter_fax}}</p>
+        <p>E-Mail: {{mitarbeiter_email}}</p>
+        <p>Web: {{firma_webseite}}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fußzeile der Seite -->
+  <p class="footer-note">Dies ist eine generische Vorlage zur Erstellung von Schadensmeldungen.</p>
+</body>
+</html>
